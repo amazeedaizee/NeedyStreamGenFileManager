@@ -170,7 +170,7 @@ namespace StreamGenFileManager
             };
             if (bg == StreamBackground.Black || bg == StreamBackground.Void || bg == StreamBackground.None)
             {
-                return null;
+                return view.background_no_shield;
             }
             return spriteBg[bg];
         }
