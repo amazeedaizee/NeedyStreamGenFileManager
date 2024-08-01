@@ -12,7 +12,7 @@ namespace StreamGenFileManager
     {
         public const string pluginGuid = "needy.girl.stream_gen_file_manager";
         public const string pluginName = "Stream Generator FIle Manager";
-        public const string pluginVersion = "1.0.0.0";
+        public const string pluginVersion = "1.0.0.2";
 
         public static ManualLogSource log;
         public static PluginInfo PInfo { get; private set; }

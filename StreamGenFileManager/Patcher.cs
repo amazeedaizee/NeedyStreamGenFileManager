@@ -82,12 +82,16 @@ namespace StreamGenFileManager
             var ex = new ExtensionFilter[] { new ExtensionFilter("JSON files", "json") };
             StandaloneFileBrowser.OpenFilePanelAsync("Open Stream", "", "json", false, (string[] file) =>
             {
-                if (file.Length > 0)
+                if (file.Length > 0 || string.IsNullOrWhiteSpace(file[0]))
                 {
-                    var json = File.ReadAllText(file[0]);
-                    string newJson = json.Replace("CustomStreamMaker", "StreamGenFileManager");
-                    var jsonSettings = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.All };
-                    streamobj = JsonConvert.DeserializeObject<StreamSettings>(newJson, jsonSettings);
+                    try
+                    {
+                        var json = File.ReadAllText(file[0]);
+                        string newJson = json.Replace("CustomStreamMaker", "StreamGenFileManager");
+                        var jsonSettings = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.All };
+                        streamobj = JsonConvert.DeserializeObject<StreamSettings>(newJson, jsonSettings);
+                    }
+                    catch { }
                 }
 
             });
@@ -99,6 +103,7 @@ namespace StreamGenFileManager
         {
             if (stream == null)
             {
+                Initializer.log.LogInfo("Did not load file!");
                 return;
             };
             var list = instance.textInputs;
