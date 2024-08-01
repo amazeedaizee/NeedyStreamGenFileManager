@@ -43,7 +43,7 @@ namespace StreamGenFileManager
             load.GetComponent<RectTransform>().localPosition = new Vector3(58, -845, -5);
             load.GetComponent<Button>().OnClickAsObservable().Subscribe(async delegate
             {
-                await LoadCustomStream(__instance, LoadFile());
+                await LoadCustomStream(__instance, await LoadFile());
             }).AddTo(__instance.gameObject);
             save.GetComponent<Button>().OnClickAsObservable().Subscribe(delegate
             {
@@ -76,8 +76,9 @@ namespace StreamGenFileManager
 
         }
 
-        internal static StreamSettings LoadFile()
+        internal async static UniTask<StreamSettings> LoadFile()
         {
+            bool noFile = false;
             StreamSettings streamobj = null;
             var ex = new ExtensionFilter[] { new ExtensionFilter("JSON files", "json") };
             StandaloneFileBrowser.OpenFilePanelAsync("Open Stream", "", "json", false, (string[] file) =>
@@ -91,10 +92,14 @@ namespace StreamGenFileManager
                         var jsonSettings = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.All };
                         streamobj = JsonConvert.DeserializeObject<StreamSettings>(newJson, jsonSettings);
                     }
-                    catch { }
+                    catch { noFile = true; }
                 }
-
+                else
+                {
+                    noFile = true;
+                }
             });
+            await UniTask.WaitUntil(() => { return noFile || streamobj != null; });
             return streamobj;
 
         }
