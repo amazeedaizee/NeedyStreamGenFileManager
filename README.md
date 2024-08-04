@@ -9,6 +9,8 @@ Files saved using this mod are also compatible with the [Custom Stream Maker](ht
 - Custom assets and backgrounds are currently not supported at this time.
 - When loading files made from the Custom Stream Maker, some information meant for said program will be kept in the file, however other stream events and chat comments will be lost during saving.
 
+Some extra features that also exist in this mod include: automatically setting a start animation before you play your stream. Would be pretty awkward if KAngel suddenly pop into her guru outfit or turns into Ame now wouldn't it?
+
 ### Note: You must have BepInEx pre-configured and enabled with the game to use this mod.
 [You can read how to configure BepInEx with the game here.](https://gist.github.com/amazeedaizee/ae0dd70cc0d842d6a83cd80451e3752e)
 
