@@ -1,3 +1,4 @@
+### [A small update on my mods](https://gist.github.com/amazeedaizee/b065103e312e6339ddce15854445dc27)
 # Stream Generator File Manager
 
 ![2024-07-28](https://github.com/user-attachments/assets/53867487-deb0-4bb6-8c1f-5d8b14c8a690)
@@ -23,6 +24,11 @@ Some extra features that also exist in this mod include: automatically setting a
 - [UnityStandaloneFileBrowser](https://github.com/gkngkc/UnityStandaloneFileBrowser) <br/>
 - [Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json) <br/>
 
+## Disclosure
+
+This mod was unfortunately created using Visual Studio 2022 with Intellicode (Ai-powered autocomplete)
+
+[More info](https://gist.github.com/amazeedaizee/b065103e312e6339ddce15854445dc27)
 
 ## Licensing
 
